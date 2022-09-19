@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.0",
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23",
+    "vite-svg-loader": "^3.2.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.1",
+    "bootstrap-vue": "^2.22.0",
+    "vue": "^3.2.39"
+  }
+}
