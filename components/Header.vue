@@ -3,7 +3,8 @@
 		class="flex items-center justify-between py-7 lg:px-desktop mx-auto sticky top-0 z-50 bg-white/80"
 	>
 		<h1 class="font-bold text-2xl">
-			CONTACT<span class="text-red-600">PRO</span>
+			<!-- CONTACT<span class="text-red-600">PRO</span> -->
+			<img src="../public/Ok1.png" alt="">
 		</h1>
 		<ul class="items-center space-x-14 hidden lg:flex">
 			<li
@@ -28,12 +29,12 @@
 			</li>
 		</ul>
 		<div class="space-x-8 hidden lg:block">
-			<NuxtLink class="font-medium" to="#">Login</NuxtLink>
+			<NuxtLink class="font-medium" @click="showModal = !showModal" to="#">Connexion</NuxtLink>
 			<NuxtLink
 				@click="showModal = !showModal"
 				class="border border-black py-3 px-7 rounded-full font-medium hover:bg-black hover:text-white transition-all"
 				to="#"
-				>Register</NuxtLink
+				>Inscription</NuxtLink
 			>
 		</div>
 		<Modal class="" v-model:show="showModal" bgColor="bg-white/90">
@@ -84,6 +85,6 @@
 <script setup>
 	import CloseIcon from "@/assets/icons/close.svg?component";
 	const activeLink = useState("activeLink", () => "Home");
-	const links = ["Home", "About Us", "Pricing", "Blog", "Contact"];
+	const links = ["Accueil", "A Propos", "Nos Services", "Entreprises", "Start Up", "Les Tops", "Categories", "Contact"];
 	const showModal = useState("showModal", () => false);
 </script>
