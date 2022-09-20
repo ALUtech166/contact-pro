@@ -1,12 +1,12 @@
 <template>
 	<section class="lg:mx-desktop bg-[#F3F7F5] rounded-3xl mt-4 relative">
-		<div class="flex">
+	<!-- 	<div class="flex">
 			<div class="basis-1/2 pl-20 pt-24 relative">
-				<!-- Random circle -->
+				
 				<div
 					class="absolute right-[10%] top-1/2 rounded-full w-5 h-5 bg-green-900"
 				></div>
-				<!-- Random circle -->
+				
 				<div
 					class="absolute left-[40%] bottom-7 rounded-full w-5 h-5 bg-yellow-500"
 				></div>
@@ -37,7 +37,7 @@
 			<div class="basis-1/2 overflow-hidden relative hidden lg:block">
 				<img src="/home.png" alt="Home Image" class="object-cover h-[110%]" />
 			</div>
-		</div>
+		</div> -->
 	</section>
 </template>
 

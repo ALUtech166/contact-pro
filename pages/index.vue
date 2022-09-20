@@ -5,7 +5,7 @@
 			<Hero />
 			<section class="mt-10 lg:px-desktop">
 				<div class="flex divide-x-2">
-					<div class="basis-1/2 flex space-x-10">
+					<!-- <div class="basis-1/2 flex space-x-10">
 						<img src="/about.png" alt="About Icon" class="w-auto h-20" />
 						<p class="text-2xl text-gray-600">
 							A living place for curiosity and <br />
@@ -28,7 +28,7 @@
 							<h1 class="font-bold text-8xl">11K</h1>
 							<p class="uppercase font-bold text-gray-500">Participants</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</section>
 		</main>
