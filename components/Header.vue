@@ -6,7 +6,7 @@
 			<!-- CONTACT<span class="text-red-600">PRO</span> -->
 			<img src="../public/Ok1.png" alt="">
 		</h1>
-		<ul class="items-center space-x-14 hidden lg:flex">
+		<ul class="font-serif items-center space-x-14 hidden lg:flex">
 			<li
 				class="group"
 				@click="activeLink = link"
@@ -28,7 +28,7 @@
 				></div>
 			</li>
 		</ul>
-		<div class="space-x-8 hidden lg:block">
+		<div class="font-serif space-x-8 hidden lg:block">
 			<NuxtLink class="font-medium" @click="showModal = !showModal" to="#">Connexion</NuxtLink>
 			<NuxtLink
 				@click="showModal = !showModal"
@@ -44,7 +44,7 @@
 			>
 				<!-- Close button -->
 				<div class="flex justify-between p-5 border-b border-gray-300">
-					<h1 class="font-bold text-2xl">Register</h1>
+					<h1 class="font-bold text-2xl">Connexion</h1>
 					<button @click="showModal = false" class="">
 						<CloseIcon
 							class="w-5 h-5 text-gray-400 hover:text-red-600 hover:rotate-[360deg] transition-all duration-500 hover:bg-gray-100 rounded-full focus:outline-dotted focus:outline-gray-300 active:outline active:outline-gray-300"
@@ -55,9 +55,33 @@
 					<form @submit.prevent="">
 						<div>
 							<label
-								for="email"
+								for="Nom"
+								class="block mb-1 cursor-pointer text-gray-500 font-medium"
+								>Nom</label
+							>
+							<input
+								required
+								type="email"
+								name="email"
+								id="email"
+								class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
+							/>
+							<label
+								for="Email"
 								class="block mb-1 cursor-pointer text-gray-500 font-medium"
 								>Email</label
+							>
+							<input
+								required
+								type="telephone"
+								name="email"
+								id="email"
+								class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
+							/>
+							<label
+								for="Telephone"
+								class="block mb-1 cursor-pointer text-gray-500 font-medium"
+								>Telephone</label
 							>
 							<input
 								required
@@ -85,6 +109,6 @@
 <script setup>
 	import CloseIcon from "@/assets/icons/close.svg?component";
 	const activeLink = useState("activeLink", () => "Home");
-	const links = ["Accueil", "A Propos", "Nos Services", "Entreprises", "Start Up", "Les Tops", "Categories", "Contact"];
+	const links = ["Accueil", "A Propos", "Nos Services", "Entreprises", "Categories", "Contact"];
 	const showModal = useState("showModal", () => false);
 </script>

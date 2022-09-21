@@ -13,7 +13,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Inter", ...defaultTheme.fontFamily.sans],
+				sans: ["jost", ...defaultTheme.fontFamily.sans],
 			},
 			animation: {
 				fade: "fade 0.4s ease-in-out",

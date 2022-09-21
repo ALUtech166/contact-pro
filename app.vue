@@ -6,7 +6,7 @@
 
 <script setup>
 	useMeta({
-		title: "Startup Agency",
+		title: "Contact Pro Afrique",
 	});
 </script>
 

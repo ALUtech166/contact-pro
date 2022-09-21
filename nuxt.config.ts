@@ -7,12 +7,14 @@ export default defineNuxtConfig({
 		plugins: [svgLoader()],
 	},
 	css: ["@/assets/css/main.css"],
+	modules: ['bootstrap-vue/nuxt'],
 	build: {
 		postcss: {
 			postcssOptions: {
 				plugins: {
 					tailwindcss: {},
 					autoprefixer: {},
+					
 				},
 			},
 		},
