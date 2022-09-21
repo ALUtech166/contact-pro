@@ -3,11 +3,16 @@
 		<Header />
 		<main class="mb-16">
 			<Hero />
-			
-			
-		</main>
-		
 
-	
+
+		</main>
+
+		<footer>
+			<Footer />
+		</footer>
+
+
+
+
 	</div>
 </template>

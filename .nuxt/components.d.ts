@@ -2,6 +2,7 @@
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'About': typeof import("../components/About.vue")['default']
+    'Footer': typeof import("../components/Footer.vue")['default']
     'Header': typeof import("../components/Header.vue")['default']
     'Hero': typeof import("../components/Hero.vue")['default']
     'Modal': typeof import("../components/Modal.vue")['default']
@@ -14,6 +15,7 @@ declare module '@vue/runtime-core' {
     'NuxtLink': typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']
     'NuxtLoadingIndicator': typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
     'LazyAbout': typeof import("../components/About.vue")['default']
+    'LazyFooter': typeof import("../components/Footer.vue")['default']
     'LazyHeader': typeof import("../components/Header.vue")['default']
     'LazyHero': typeof import("../components/Hero.vue")['default']
     'LazyModal': typeof import("../components/Modal.vue")['default']
@@ -29,6 +31,7 @@ declare module '@vue/runtime-core' {
 }
 
 export const About: typeof import("../components/About.vue")['default']
+export const Footer: typeof import("../components/Footer.vue")['default']
 export const Header: typeof import("../components/Header.vue")['default']
 export const Hero: typeof import("../components/Hero.vue")['default']
 export const Modal: typeof import("../components/Modal.vue")['default']
@@ -41,6 +44,7 @@ export const ServerPlaceholder: typeof import("../node_modules/nuxt/dist/app/com
 export const NuxtLink: typeof import("../node_modules/nuxt/dist/app/components/nuxt-link")['default']
 export const NuxtLoadingIndicator: typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
 export const LazyAbout: typeof import("../components/About.vue")['default']
+export const LazyFooter: typeof import("../components/Footer.vue")['default']
 export const LazyHeader: typeof import("../components/Header.vue")['default']
 export const LazyHero: typeof import("../components/Hero.vue")['default']
 export const LazyModal: typeof import("../components/Modal.vue")['default']

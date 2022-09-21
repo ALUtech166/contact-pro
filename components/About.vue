@@ -1,5 +1,7 @@
 <template>
      <div>
+         
+
           <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#fff] rounded-2xl">
                <div class="flex divide-x-2">
                     <div class="basis-1/2">
@@ -27,11 +29,11 @@
           </section>
 
 
-          <section class="p-8 lg:px-desktop  bg-blue-600 rounded-2xl">
+          <section class="p-8 lg:px-desktop  bg-blue-800 rounded-2xl">
                <div class="divide-x-2">
                     <div class="space-x-10 p-8">
                          <h1
-                              class="font-serif font-bold text-left p-8 bg-white w-1/3 text-blue-800 uppercase text-4xl z-40 animate-slideDown">
+                              class="font-serif font-bold text-left p-8  w-1/3 text-gray-900 uppercase text-4xl z-40 animate-slideDown">
                               Notre Histoire
                          </h1>
 
@@ -48,7 +50,7 @@
                               </div>
                          </div>
 
-                         <p class="font-sans text-left text-xl text-white py-8">
+                         <p class="font-sans text-left text-xl text-white py-4">
                               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est
                               repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur
                               libero laudantium id amet esse quis minus.
