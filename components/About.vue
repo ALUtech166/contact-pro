@@ -23,17 +23,17 @@
                          <div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10">
                          </div>
 
-                         <img src="../public/about.png" alt="">
+                         <img src="../public/apropos.png" alt="">
                     </div>
                </div>
           </section>
 
 
-          <section class="p-8 lg:px-desktop  bg-blue-800 rounded-2xl">
+          <section class="p-8 lg:px-desktop  bg-[#F3F7F5] rounded-2xl">
                <div class="divide-x-2">
                     <div class="space-x-10 p-8">
                          <h1
-                              class="font-serif font-bold text-left p-8  w-1/3 text-gray-900 uppercase text-4xl z-40 animate-slideDown">
+                              class="font-serif font-bold text-left p-8  w-1/3 text-blue-900 uppercase text-4xl z-40 animate-slideDown">
                               Notre Histoire
                          </h1>
 
@@ -50,7 +50,7 @@
                               </div>
                          </div>
 
-                         <p class="font-sans text-left text-xl text-white py-4">
+                         <p class="font-sans text-left text-xl text-gray-600 py-4">
                               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est
                               repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur
                               libero laudantium id amet esse quis minus.
@@ -69,24 +69,37 @@
                </div>
           </section>
 
-          <section class="p-8 lg:px-desktop  bg-white rounded-2xl">
+          <section class="mt-8 p-8 lg:px-desktop  bg-white rounded-2xl">
                <div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12">
                     <div class="flex justify-end">
 
-                         <img class="image" src="../public/Ok.svg" alt="">
+                         <img class="image" src="../public/img.png" alt="">
 
                     </div>
 
                     <div class="flex justify-center">
-                         <img class="image" src="../public/Ok2.svg" alt="">
+                         <img class="image" src="../public/img2.png" alt="">
 
                     </div>
 
                     <div class="flex justify-start">
-                         <img class="image" src="../public/Ok3.svg" alt="">
+                         <img class="image" src="../public/img3.png" alt="">
                     </div>
 
                </div>
+
+          </section>
+
+            <section class="p-8 lg:px-desktop  bg-white rounded-2xl">
+               
+                   
+
+                    <div class="justify-center">
+                         <img class="image" src="../public/video.png" alt="">
+
+                    </div>
+
+              
 
           </section>
 
@@ -97,7 +110,7 @@
                          <div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10">
                          </div>
 
-                         <img src="../public/about.png" alt="">
+                         <img src="../public/image.svg" alt="">
                     </div>
                     <div class="basis-1/2">
                          <h1

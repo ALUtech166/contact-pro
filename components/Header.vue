@@ -32,7 +32,7 @@
 			<NuxtLink class="font-medium" @click="showModal = !showModal" to="#">Connexion</NuxtLink>
 			<NuxtLink
 				@click="showModal = !showModal"
-				class="border border-black py-3 px-7 rounded-full font-medium hover:bg-black hover:text-white transition-all"
+				class="border border-black py-3 px-7 rounded-full font-medium hover:bg-orange-600 hover:text-white transition-all"
 				to="#"
 				>Inscription</NuxtLink
 			>
@@ -109,6 +109,6 @@
 <script setup>
 	import CloseIcon from "@/assets/icons/close.svg?component";
 	const activeLink = useState("activeLink", () => "Home");
-	const links = ["Accueil", "A Propos", "Nos Services", "Entreprises", "Categories", "Contact"];
+	const links = ["Accueil", "Nos Services", "Entreprises", "Contact"];
 	const showModal = useState("showModal", () => false);
 </script>

@@ -6,8 +6,11 @@ export default defineNuxtConfig({
 	vite: {
 		plugins: [svgLoader()],
 	},
+	  buildModules: [
+    
+   
+  ],
 	css: ["@/assets/css/main.css"],
-	modules: ['bootstrap-vue/nuxt'],
 	build: {
 		postcss: {
 			postcssOptions: {
@@ -17,6 +20,9 @@ export default defineNuxtConfig({
 					
 				},
 			},
+			
 		},
+
+		
 	},
 });

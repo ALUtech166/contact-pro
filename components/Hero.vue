@@ -1,6 +1,6 @@
 <template>
 	<section class="lg:mx-desktop rounded-2xl p-8 mt-8">
-		<div class="hero rounded-2xl">
+		<div class="hero rounded-xl">
 			<div class="basis-1/2 pl-20 pt-8 relative">
 
 				<div class="absolute right-[10%] top-1/2 rounded-full w-5 h-5 bg-green-900"></div>
@@ -124,7 +124,7 @@
 	}
 
 	.hero1 {
-		background-image: url(../public/Ok.svg);
+		background-image: url(../public/annuaire.svg);
 		background-size: cover;
 		opacity: 0.9;
 

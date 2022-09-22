@@ -16,15 +16,15 @@
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <nuxt-link to="/">Nos Services</nuxt-link>
+                                   <nuxt-link to="/service">Nos Services</nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <nuxt-link to="/">Entreprises</nuxt-link>
+                                   <nuxt-link to="/entreprise">Entreprises</nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <nuxt-link to="/">Contact</nuxt-link>
+                                   <nuxt-link to="/contact">Contact</nuxt-link>
                               </div>
 
                          </div>
@@ -71,11 +71,13 @@
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <img src="../public/social-2.svg" alt="">
+                                   <nuxt-link to="/"><img src="../public/social-2.svg" alt=""></nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <img src="../public/social-3.svg" alt="">
+                                   <nuxt-link to="/">
+                                        <img src="../public/social-3.svg" alt="">
+                                   </nuxt-link>
                               </div>
 
 
@@ -85,7 +87,7 @@
                     </div>
 
                </div>
-               <p class="text-right py-4 px-16 font-bold text-white text-lg">Copyright © Contact Pro Afrique 2022</p>
+               <p class="text-right py-4 px-24 font-bold text-white text-lg">Copyright © Contact Pro Afrique 2022</p>
           </section>
 
 
