@@ -2,7 +2,7 @@
      <div>
           <Header />
           <main class="mb-16">
-               <section class="py-16 px-8 bg-orange-600">
+               <section class="py-24 px-8 bg-orange-600">
                     <div class="text-justify">
                          <div class="">
                               <h1

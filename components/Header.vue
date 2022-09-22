@@ -31,7 +31,7 @@
 		<div class="font-serif space-x-8 hidden lg:block">
 			<NuxtLink class="font-medium" @click="showModal = !showModal" to="#">Connexion</NuxtLink>
 			<NuxtLink
-				@click="showModal = !showModal"
+				@click="showModal2 = !showModal2"
 				class="border border-black py-3 px-7 rounded-full font-medium hover:bg-orange-600 hover:text-white transition-all"
 				to="#"
 				>Inscription</NuxtLink
@@ -78,10 +78,42 @@
 								id="email"
 								class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
 							/>
+							
+						</div>
+						<div class="mt-5">
+							<button
+								type="submit"
+								class="block bg-orange-600 w-full py-3 rounded-md font-bold text-white"
+							>
+								Connexion
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</Modal>
+
+		<Modal class="" v-model:show="showModal2" bgColor="bg-white/90">
+			<div
+				@click.stop=""
+				class="relative bg-white rounded-lg max-w-lg min-w-[400px] animate-fade shadow-xl"
+			>
+				<!-- Close button -->
+				<div class="flex justify-between p-5 border-b border-gray-300">
+					<h1 class="font-bold text-2xl">Inscription</h1>
+					<button @click="showModal2 = false" class="">
+						<CloseIcon
+							class="w-5 h-5 text-gray-400 hover:text-red-600 hover:rotate-[360deg] transition-all duration-500 hover:bg-gray-100 rounded-full focus:outline-dotted focus:outline-gray-300 active:outline active:outline-gray-300"
+						/>
+					</button>
+				</div>
+				<div class="px-4 pb-2 mt-5">
+					<form @submit.prevent="">
+						<div>
 							<label
-								for="Telephone"
+								for="Nom"
 								class="block mb-1 cursor-pointer text-gray-500 font-medium"
-								>Telephone</label
+								>Nom</label
 							>
 							<input
 								required
@@ -90,13 +122,40 @@
 								id="email"
 								class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
 							/>
+							<label
+								for="Email"
+								class="block mb-1 cursor-pointer text-gray-500 font-medium"
+								>Email</label
+							>
+							<input
+								required
+								type="telephone"
+								name="email"
+								id="email"
+								class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
+							/>
+
+							<label
+								for="Email"
+								class="block mb-1 cursor-pointer text-gray-500 font-medium"
+								>Telephone</label
+							>
+							<input
+								required
+								type="telephone"
+								name="email"
+								id="email"
+								class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
+							/>
+							
+							
 						</div>
 						<div class="mt-5">
 							<button
 								type="submit"
-								class="block bg-red-600 w-full py-3 rounded-md font-bold text-white"
+								class="block bg-orange-600 w-full py-3 rounded-md font-bold text-white"
 							>
-								Submit
+								Inscription
 							</button>
 						</div>
 					</form>
@@ -110,5 +169,6 @@
 	import CloseIcon from "@/assets/icons/close.svg?component";
 	const activeLink = useState("activeLink", () => "Home");
 	const links = ["Accueil", "Nos Services", "Entreprises", "Contact"];
-	const showModal = useState("showModal", () => false);
+     const showModal = useState("showModal", () => false);
+	const showModal2 = useState("showModal2", () => false);
 </script>

@@ -2,7 +2,7 @@
      <div>
           <Header />
           <main class="mb-16">
-               <section class="py-16 px-8 bg-orange-600">
+               <section class="py-24 px-8 bg-orange-600">
                     <div class="text-justify">
                          <div class="">
                               <h1
@@ -175,19 +175,19 @@
                                    <form @submit.prevent="">
                                         <div>
                                              <label for="Nom"
-                                                  class="block mb-1 cursor-pointer text-gray-500 font-medium">Nom</label>
+                                                  class="block mb-1 cursor-pointer text-gray-900 font-medium">Nom</label>
                                              <input required type="email" name="email" id="email"
                                                   class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400" />
                                              <label for="Email"
-                                                  class="block mb-1 cursor-pointer text-gray-500 font-medium">Email</label>
+                                                  class="block mb-1 cursor-pointer text-gray-900 font-medium">Email</label>
                                              <input required type="telephone" name="email" id="email"
                                                   class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400" />
                                              <label for="Telephone"
-                                                  class="block mb-1 cursor-pointer text-gray-500 font-medium">Telephone</label>
+                                                  class="block mb-1 cursor-pointer text-gray-900 font-medium">Telephone</label>
                                              <input required type="email" name="email" id="email"
                                                   class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400" />
                                              <label for="Telephone"
-                                                  class="block mb-1 cursor-pointer text-gray-500 font-medium">Message</label>
+                                                  class="block mb-1 cursor-pointer text-gray-900 font-medium">Message</label>
                                              <textarea
                                                   class="w-full py-3 rounded-lg border border-gray-300 focus:ring-0 focus:border-green-400"
                                                   name="" id="" cols="20" rows="10"></textarea>
@@ -208,7 +208,7 @@
 
 
                <section>
-                    <div class="mapouter">
+                    <div class="mapouter rounded-md px-8">
                          <div class="gmap_canvas">
 
                               <iframe
