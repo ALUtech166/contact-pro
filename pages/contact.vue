@@ -71,7 +71,8 @@
                                    natus dolores velit,
                               </p>
 
-                              <h3 class="py-4 font-serif font-bold text-left text-xl text-blue-900">
+                              <h3 class="py-4 flex font-serif font-bold text-left text-xl text-blue-900">
+                                   <img src="../public/Vector.svg" alt="">
                                    contactpro@afrique.com
                               </h3>
                          </div>
@@ -87,14 +88,15 @@
                                    natus dolores velit,
                               </p>
 
-                              <h3 class="py-4 font-serif font-bold text-left text-xl text-blue-900">
+                              <h3 class="py-4 font-serif flex font-bold text-left text-xl text-blue-900">
+                                   <img src="../public/Path.png" alt="">
                                    91 58 44 74 | 96 36 03 31
                               </h3>
                          </div>
 
                          <div class="basis-1/2 justify-end space-x-10">
                               <h1
-                                   class="font-serif font-bold text-center text-blue-800 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="font-serif font-bold text-center text-blue-800 uppercase text-2xl  animate-slideDown">
                                    Adresse
                               </h1>
 
@@ -103,7 +105,9 @@
                                    natus dolores velit,
                               </p>
 
-                              <h3 class="py-4 font-serif font-bold text-left text-xl text-blue-900">
+                              <h3 class="py-4 flex font-serif font-bold text-left text-xl text-blue-900">
+                                   <img src="../public/Vector.png" alt="">
+
                                    Lomé, Togo
                               </h3>
                          </div>
@@ -116,7 +120,7 @@
                          <div class="py-4 basis-1/2 font-serif space-x-8 hidden lg:block">
 
                               <NuxtLink @click="showContact = !showContact"
-                                   class="border bg-blue-800 text-white py-3 px-7 rounded-md font-medium hover:bg-orange-600 hover:text-white transition-all"
+                                   class=" bg-blue-800 text-white py-3 px-7 rounded-md font-medium hover:border-black hover:bg-green-700 hover:text-white transition-all"
                                    to="#">Envoyer Un Message</NuxtLink>
                          </div>
 
@@ -194,8 +198,8 @@
                                         </div>
                                         <div class="mt-5">
                                              <button type="submit"
-                                                  class="block bg-red-600 w-full py-3 rounded-md font-bold text-white">
-                                                  Submit
+                                                  class="block bg-orange-600 w-full py-3 rounded-md font-bold text-white">
+                                                  Envoyer
                                              </button>
                                         </div>
                                    </form>

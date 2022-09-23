@@ -1,12 +1,12 @@
 <template>
-	<section class="lg:mx-desktop rounded-2xl p-8 mt-8">
-		<div class="hero lg:mx-desktop rounded-xl">
+	<section class="">
+		<div class="hero">
 			<div class="basis-1/2 pl-20 pt-8 relative">
 
 				<div class="absolute right-[10%] top-1/2 rounded-full w-5 h-5 bg-green-900"></div>
 
 				<h1
-					class="font-serif font-bold px-8 py-8 text-center text-white uppercase text-6xl leading-[1.15] relative z-40 animate-slideDown">
+					class="font-serif lg:py-desktop font-bold px-8 py-4 text-center text-white uppercase text-6xl leading-[1.15] relative z-40 animate-slideDown">
 					<div class="absolute right-[20%] top-0  rounded-full w-20 h-20 bg-green-400/50 z-30"></div>
 					Bienvenue Chez Nous !
 				</h1>
@@ -14,13 +14,10 @@
 				<div class="items-center  justify-center">
 
 					<div class="">
-						<div class="py-8 px-16 flex flex-nowrap space-x-10">
-
-
-
+						<div class="py-4 px-16 flex flex-nowrap space-x-10">
 
 							<select
-								class="w-full py-4 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight"
+								class="w-full- text-serif py-4 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight"
 								name="" id="">
 								<option>Sociétés</option>
 								<option>Professionnel</option>
@@ -29,16 +26,17 @@
 							</select>
 
 							<input required type="email" name="email" id="email" placeholder="Que recherchez-vous?"
-								class="w-full py-3 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
+								class="w-full text-serif py-3 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
 
 							<input required type="email" name="email" id="email" placeholder="Où?"
-								class="w-full py-3 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
+								class="w-full py-3 px-16 drop-shadow-md rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
 
 
-							<button type="submit"
-								class="block bg-red-600 w-full py-3 rounded-md font-bold text-white z-40 animate-slideRight">
+
+							<nuxt-link to="/result" type="submit"
+								class="block text-serif bg-orange-600 w-full py-4 px-3 text-center rounded-md font-bold text-white z-40 animate-slideRight">
 								Rechercher
-							</button>
+							</nuxt-link>
 
 
 						</div>
@@ -110,6 +108,7 @@
 				</div>
 			</div>
 		</section>
+		<About />
 
 		<section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
 			<div class="flex divide-x-2">
@@ -136,7 +135,6 @@
 				</div>
 			</div>
 		</section>
-		<About />
 	</section>
 
 

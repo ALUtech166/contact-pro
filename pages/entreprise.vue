@@ -33,7 +33,7 @@
                     </div>
                </section>
 
-               <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
+               <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop  lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
 			<div class="flex divide-x-2">
 				<div class="basis-1/2 flex space-x-10">
 					<h1
@@ -60,7 +60,7 @@
 
                <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
                     
-                    <div class="flex flex-nowrap space-x-10">
+                    <div class="flex flex-nowrap space-x-10 lg:px-desktop ">
                          <div>
                               <img src="../public/BTP.jpg" alt="">
                               <nuxt-link to="">
@@ -99,7 +99,7 @@
                          </div>
                     </div>
 
-                     <div class="flex flex-nowrap space-x-10">
+                     <div class="flex flex-nowrap space-x-10 lg:px-desktop">
                          <div>
                               <img src="../public/BTP.jpg" alt="">
                               <nuxt-link to="">

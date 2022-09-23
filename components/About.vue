@@ -126,7 +126,13 @@
                               repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur
                               libero laudantium id amet esse quis minus.
                          </p>
-                         <button class="rounded-2xl bg-orange-600 px-4 py-4 text-xl">Lire Plus</button>
+                 
+                         
+							<button type="submit"
+								class="block text-serif bg-orange-600 py-3 px-8 rounded-md font-bold text-white z-40 animate-slideRight">
+								Lire Plus
+							</button>
+
                     </div>
                </div>
 
