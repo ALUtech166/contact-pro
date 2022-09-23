@@ -18,6 +18,7 @@ module.exports = {
 			animation: {
 				fade: "fade 0.4s ease-in-out",
 				slideDown: "slideDown 1s ease-in",
+				slideRight: "slideRight 1s ease-in",
 			},
 			keyframes: {
 				fade: {
@@ -39,6 +40,19 @@ module.exports = {
 						transform: "translateY(0)",
 						opacity: 1,
 					},
+				},
+				slideRight: {
+					"0%": {
+						opacity: 0,
+						transform: "translateX(-70px)"
+					},
+
+					
+
+					"100%": {
+						opacity: 0,
+						transform: "translateY(0)"
+					}
 				},
 			},
 			spacing: {

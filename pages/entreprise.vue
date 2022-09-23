@@ -37,7 +37,7 @@
 			<div class="flex divide-x-2">
 				<div class="basis-1/2 flex space-x-10">
 					<h1
-						class="font-serif font-bold text-center text-blue-800 uppercase text-4xl leading-[1.15] relative z-40 animate-slideDown">
+						class="font-serif font-bold  text-center text-blue-800 uppercase text-4xl leading-[1.15] relative z-40 animate-slideDown">
 						Annuaire des Sociétés du Togo
 					</h1>
 				</div>
@@ -65,7 +65,7 @@
                               <img src="../public/BTP.jpg" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                    Immobilier
                               </h1>
                               </nuxt-link>
@@ -74,7 +74,7 @@
                               <img src="../public/Construction.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                     Construction
                               </h1>
                               </nuxt-link>
@@ -83,7 +83,7 @@
                               <img src="../public/Finance.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                    Finance
                               </h1>
                               </nuxt-link>
@@ -92,7 +92,7 @@
                               <img src="../public/Electronique.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                    Electronique
                               </h1>
                               </nuxt-link>
@@ -104,7 +104,7 @@
                               <img src="../public/BTP.jpg" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                    Immobilier
                               </h1>
                               </nuxt-link>
@@ -113,7 +113,7 @@
                               <img src="../public/Construction.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                     Construction
                               </h1>
                               </nuxt-link>
@@ -122,7 +122,7 @@
                               <img src="../public/Finance.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif font-bold bg-white m-8 rounded-sm shadow text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                    Finance
                               </h1>
                               </nuxt-link>
@@ -131,7 +131,7 @@
                               <img src="../public/Electronique.png" alt="">
                               <nuxt-link to="/">
                                    <h1
-                                   class="py-8 font-serif font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif font-bold bg-white m-8 rounded-sm shadow text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
                                    Electronique
                               </h1>
                               </nuxt-link>
