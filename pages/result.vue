@@ -27,7 +27,7 @@
 
 
                                    <button type="submit"
-                                        class="block text-serif bg-orange-600 w-full py-3 rounded-md font-bold text-white z-40 animate-slideRight">
+                                        class="block text-serif bg-orange-600 w-full hover:bg-green-600 hover:text-white py-3 rounded-md font-bold text-white z-40 animate-slideRight">
                                         Rechercher
                                    </button>
 
@@ -70,11 +70,11 @@
 
 
                     </section>
-                    <div class="basis-1/2">
+                    <div class="basis-1/2 grow">
 
                          <div
                               class="p-4 w-full text-left bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                              <h5 class="mb-2 font-bold text-blue-800 uppercase text-4xl dark:text-white">Mek's Engineering Group
+                              <h5 class="mb-2 font-bold text-blue-800 uppercase text-4xl dark:text-white">CFAO MOTORS
                               </h5>
                               <p class="mb-5 text-base font-bold text-gray-900 sm:text-lg dark:text-gray-400">
                                    Totsi, en Face de Motos Electrique
@@ -143,14 +143,14 @@
 
 
                          <div class="">
-                              <img class="" src="../public/img3.png" alt="">
+                              <img class="" src="../public/img2.png" alt="">
 
                          </div>
 
 
 
                     </section>
-                    <div class="basis-1/2">
+                    <div class="basis-1/2 grow">
 
                          <div
                               class="p-4 w-full text-left bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
