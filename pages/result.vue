@@ -1,15 +1,15 @@
 <template>
      <div>
-          <Header />
+          <Top />
           <main class="mb-16">
-               <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
+               <section class="lg:mt-10 lg:py-8 lg:px-8 lg:mx-8 lg:my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] lg:rounded-2xl">
                     <div class="divide-x-2">
 
                          <div class="">
-                              <div class="py-4 px-16 flex flex-nowrap space-x-10">
+                              <div class="pt-4 py-4 lg:px-16 md:px-16 lg:px-16 xl:px-16 md:flex lg:flex xl:flex md:flex-nowrap lg:flex-nowrap xl:flex-nowrap space-x-10 lg:space-y-0 md:space-y-0 xl:space-y-0 space-y-2">
 
                                    <select
-                                        class="w-full- text-serif py-4 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight"
+                                        class="lg:w-full mx-10 text-serif py-4 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight"
                                         name="" id="">
                                         <option>Sociétés</option>
                                         <option>Professionnel</option>
@@ -19,15 +19,15 @@
 
                                    <input required type="email" name="email" id="email"
                                         placeholder="Que recherchez-vous?"
-                                        class="w-full text-serif py-3 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
+                                        class="lg:w-full text-serif py-4 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
 
                                    <input required type="email" name="email" id="email" placeholder="Où?"
-                                        class="w-full py-3 px-16 drop-shadow-md rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
+                                        class="lg:w-full py-4 px-16 drop-shadow-md rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideRight" />
 
 
 
                                    <button type="submit"
-                                        class="block text-serif bg-orange-600 w-full hover:bg-green-600 hover:text-white py-3 rounded-md font-bold text-white z-40 animate-slideRight">
+                                        class="block text-serif bg-orange-600 lg:w-full hover:bg-green-600 hover:text-white py-4 px-8 rounded-md font-bold text-white z-40 animate-slideRight">
                                         Rechercher
                                    </button>
 
@@ -56,8 +56,8 @@
 
 
                <section
-                    class="mt-24  py-8 px-8 mx-24 my-24 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
-                    <div class="flex space-x-10">
+                    class="lg:mt-24  lg:py-8 lg:px-8 lg:mx-24 lg:my-24 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] lg:rounded-2xl">
+                    <div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 space-y-4">
                     <section class="basis-1/4">
 
 
@@ -136,7 +136,10 @@
 
                     </div>
 
-                    <div class="py-8 flex space-x-4">
+
+
+
+                    <div class="py-8 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12  space-y-4">
                 
                     <section class="basis-1/4">
 

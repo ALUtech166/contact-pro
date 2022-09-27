@@ -1,7 +1,7 @@
 <template>
 	<header
 		class="flex space-x-4 items-center justify-between py-7 lg:px-desktop mx-auto sticky top-0 z-50 bg-white/80">
-		<h1 class="font-bold text-2xl">
+		<h1 class=" font-bold text-2xl">
 			<!-- CONTACT<span class="text-red-600">PRO</span> -->
 			<img src="../public/Ok1.png" alt="">
 		</h1>
@@ -16,7 +16,7 @@
 
 				<NuxtLink class="font-medium uppercase" to="/">Accueil</NuxtLink>
 				<NuxtLink class="font-medium uppercase" to="/service">Nos Services</NuxtLink>
-				<NuxtLink class="font-medium uppercase" to="/entreprise">Entreprise</NuxtLink>
+				<NuxtLink class="font-medium uppercase" to="/entreprise">Entreprises</NuxtLink>
 				<NuxtLink class="font-medium uppercase" to="/contact">Contact</NuxtLink>
 
 

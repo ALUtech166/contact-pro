@@ -1,12 +1,12 @@
 <template>
      <div>
-          <Header />
+          <Top />
           <main class="mb-16">
                <section class="py-24 px-8 bg-orange-600">
                     <div class="text-justify">
                          <div class="">
                               <h1
-                                   class="font-serif font-bold text-center text-white uppercase text-4xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="font-serif font-bold text-center text-white uppercase text-4xl z-40 animate-slideDown">
                                    Entreprises
                               </h1>
                          </div>
@@ -34,10 +34,10 @@
                </section>
 
                <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop  lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
-			<div class="flex divide-x-2">
+			<div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12">
 				<div class="basis-1/2 flex space-x-10">
 					<h1
-						class="font-serif font-bold  text-center text-blue-800 uppercase text-4xl leading-[1.15] relative z-40 animate-slideDown">
+						class="font-serif font-bold  text-center text-blue-800 uppercase lg:text-4xl text-md relative z-40 animate-slideDown">
 						Annuaire des Sociétés du Togo
 					</h1>
 				</div>
@@ -58,14 +58,14 @@
 			</div>
 		</section>
 
-               <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
+               <section class="lg:mt-10 lg:py-8 lg:px-8 lg:mx-8 lg:my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl">
                     
-                    <div class="flex flex-nowrap space-x-10 lg:px-desktop ">
+                    <div class="flex flex-nowrap flex-col lg:flex-row lg:space-x-4 lg:space-x-12 space-x-10 lg:px-desktop ">
                          <div>
-                              <img src="../public/BTP.jpg" alt="">
+                              <img class="mx-6" src="../public/BTP.jpg" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8  font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                    Immobilier
                               </h1>
                               </nuxt-link>
@@ -74,7 +74,7 @@
                               <img src="../public/Construction.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                     Construction
                               </h1>
                               </nuxt-link>
@@ -83,7 +83,7 @@
                               <img src="../public/Finance.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                    Finance
                               </h1>
                               </nuxt-link>
@@ -92,19 +92,19 @@
                               <img src="../public/Electronique.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                    Electronique
                               </h1>
                               </nuxt-link>
                          </div>
                     </div>
 
-                     <div class="flex flex-nowrap space-x-10 lg:px-desktop">
+                     <div class="flex flex-nowrap flex-col lg:flex-row lg:space-x-4 lg:space-x-12 space-x-10 lg:px-desktop">
                          <div>
-                              <img src="../public/BTP.jpg" alt="">
+                              <img class="mx-8" src="../public/BTP.jpg" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                    Immobilier
                               </h1>
                               </nuxt-link>
@@ -113,7 +113,7 @@
                               <img src="../public/Construction.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif bg-white m-8 rounded-sm shadow font-bold text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                     Construction
                               </h1>
                               </nuxt-link>
@@ -122,7 +122,7 @@
                               <img src="../public/Finance.png" alt="">
                               <nuxt-link to="">
                                    <h1
-                                   class="py-8 font-serif font-bold bg-white m-8 rounded-sm shadow text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif font-bold bg-white m-8 rounded-sm shadow text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                    Finance
                               </h1>
                               </nuxt-link>
@@ -131,7 +131,7 @@
                               <img src="../public/Electronique.png" alt="">
                               <nuxt-link to="/">
                                    <h1
-                                   class="py-8 font-serif font-bold bg-white m-8 rounded-sm shadow text-center text-orange-600 uppercase text-2xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="py-8 font-serif font-bold bg-white m-8 rounded-sm shadow text-center text-orange-600 uppercase text-2xl z-40 animate-slideDown">
                                    Electronique
                               </h1>
                               </nuxt-link>
@@ -142,11 +142,11 @@
 
 
                
-               <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-[#F3F7F5] rounded-2xl">
+               <section class="lg:mt-10 lg:py-8 lg:mx-16 lg:my-8 lg:px-desktop  bg-[#F3F7F5] lg:rounded-2xl">
 
 
 
-                    <div class="mx-24 justify-center">
+                    <div class="lg:mx-24 justify-center">
                          <img src="../public/pub.svg" alt="">
 
                     </div>

@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<Header />
+		<Top />
+		
 		<main class="mb-16">
 			<Hero />
 

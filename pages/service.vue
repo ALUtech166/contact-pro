@@ -1,12 +1,12 @@
 <template>
      <div>
-          <Header />
+          <Top />
           <main class="mb-16">
                <section class="py-24 px-8 bg-orange-600">
                     <div class="text-justify">
                          <div class="">
                               <h1
-                                   class="font-serif font-bold text-center text-white uppercase text-4xl leading-[1.15] relative z-40 animate-slideDown">
+                                   class="font-serif font-bold text-center text-white uppercase text-4xl z-40 animate-slideDown">
                                    Nos Services
                               </h1>
                          </div>
@@ -33,11 +33,13 @@
                     </div>
                </section>
 
-               <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-blue-800 rounded-2xl">
+               <br>
+
+               <section class="lg:mt-10 py-4 lg:py-8 lg:px-8 lg:mx-16 lg:my-8 lg:px-desktop  bg-blue-800 lg:rounded-2xl">
                     <div class="">
                          <div class="space-x-10 p-4">
                               <h1
-                                   class="font-serif font-bold text-left w-1/2 p-8 text-white shadow bg-orange-600 uppercase text-2xl z-40 animate-slideDown">
+                                   class="font-serif font-bold text-left w-full lg:w-1/2 p-8 text-white shadow bg-orange-600 uppercase text-md z-40 animate-slideDown">
                                    Annuaire Professionnel De Poche
                               </h1>
 
@@ -59,7 +61,7 @@
 
                          </div>
 
-                         <p class="font-serif text-left text-xl text-white py-4 px-4">
+                         <p class="font-serif text-left text-2sm text-white py-4 px-4">
                               Nous proposons ce produit nouveau, cet annuaire de poche : Contact Togo Afrique, pour
                               un brassage économique pour les opérateurs économiques togolais et africains. Ce sera
                               un support et outils de travail avec un format réduit et souple, facile à déplacer.
@@ -79,10 +81,10 @@
                </section>
 
                <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-white rounded-2xl">
-                    <div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12">
+                    <div class="py-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 space-y-4">
                          <div class="flex justify-end">
 
-                              <img src="../public/img.png" alt="">
+                         <img src="../public/img.png" alt="">
 
                          </div>
 
@@ -103,11 +105,11 @@
 
                </section>
 
-               <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-blue-800 rounded-2xl">
+               <section class="lg:mt-10 py-4 lg:py-8 lg:px-8 lg:mx-16 lg:my-8 lg:px-desktop  bg-blue-800 lg:rounded-2xl">
                     <div class="">
                          <div class="space-x-10 p-4">
                               <h1
-                                   class="font-serif font-bold text-left w-1/2 p-8 text-white shadow bg-orange-600 uppercase text-2xl z-40 animate-slideDown">
+                                   class="font-serif font-bold text-left w-full lg:w-1/2 p-8 text-white shadow bg-orange-600 uppercase text-md z-40 animate-slideDown">
                                    Communication
                               </h1>
 
@@ -129,7 +131,7 @@
 
                          </div>
 
-                         <p class="font-serif text-left text-xl text-white py-4 px-4">
+                         <p class="font-serif text-left text-2sm text-white py-4 px-4">
                               Sur ce volet, avec plus de 15 ans d’expériences, nous travaillons avec vous afin de vous
                               fournir les meilleurs supports de communication et cadeaux d’affaires de luxe sur mesure
                               (matière, dimensions, …, caractéristiques techniques voulues et validées par le client).
@@ -150,11 +152,11 @@
                     </div>
                </section>
 
-               <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-white rounded-2xl">
+               <section class="lg:mt-10 py-4 lg:py-8 lg:px-8 lg:mx-16 lg:my-8 lg:px-desktop lg:rounded-2xl">
 
 
 
-                    <div class="mx-24 justify-center">
+                    <div class="lg:mx-24 justify-center">
                          <img class="image" src="../public/video.png" alt="">
 
                     </div>
@@ -164,11 +166,11 @@
                </section>
 
 
-               <section class="mt-24 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-blue-800 rounded-2xl">
+               <section class="lg:mt-10 py-4 lg:py-8 lg:px-8 lg:mx-16 lg:my-8 lg:px-desktop  bg-blue-800 lg:rounded-2xl">
                     <div class="">
                          <div class="space-x-10 p-4">
                               <h1
-                                   class="font-serif font-bold text-left w-1/2 p-8 text-white shadow bg-orange-600 uppercase text-2xl z-40 animate-slideDown">
+                                   class="font-serif font-bold text-left w-full lg:w-1/2 p-8 text-white shadow bg-orange-600 uppercase text-md z-40 animate-slideDown">
                                    Solutions Digitales
                               </h1>
 
@@ -190,7 +192,7 @@
 
                          </div>
 
-                         <p class="font-serif text-left text-xl text-white py-4 px-4">
+                         <p class="font-serif text-left text-2sm text-white py-4 px-4">
                               CONTACT PRO AFRIQUE est une agence de Marketing digital qui accompagne ses clients et met
                               à leur disposition des solutions pour un management efficace et voulu. Un panel de
                               solutions pour répondre de façon globale à vos besoins de fidélisations clients et de
@@ -210,11 +212,11 @@
                     </div>
                </section>
 
-               <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-[#F3F7F5] rounded-2xl">
+               <section class="lg:mt-10 lg:py-16 px-8 lg:mx-16 lg:my-8 lg:px-desktop  bg-[#F3F7F5] lg:rounded-2xl">
 
 
 
-                    <div class="mx-24 justify-center">
+                    <div class="lg:mx-24 justify-center">
                          <img class="image" src="../public/market.png" alt="">
 
                     </div>
@@ -224,14 +226,14 @@
                </section>
 
 
-               <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop  bg-white rounded-2xl banner">
-                    <div class="flex">
-                         <div class="basis-1/2">
+               <section class="lg:mt-10 lg:py-16 lg:mx-16 lg:my-8 lg:px-desktop  bg-white lg:rounded-2xl banner">
+                    <div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12">
+                         <div class="basis-1/2 px-8">
                               <h1
-                                   class="font-serif font-bold text-left text-white text-justify  uppercase text-4xl  z-40 animate-slideDown">
+                                   class="font-serif font-bold text-left text-white text-justify py-4 uppercase text-md  z-40 animate-slideDown">
                                    Nos Solutions Digitales
                               </h1>
-                              <p class="font-serif text-justify text-white text-left text-xl  py-8">
+                              <p class="font-serif text-justify text-white text-left text-md  py-8">
                                    • Conseils et définition de votre stratégie digitale. <br>
                                    • Développement de votre
                                    présence sur les réseaux sociaux.<br>
@@ -272,7 +274,7 @@
                </section>
 
 
-                <section class="mt-10 py-8 px-8 mx-16 my-8 lg:px-desktop bg-[#F3F7F5] rounded-2xl">
+                <section class="lg:mt-10 lg:py-8 lg:mx-16 lg:my-8 lg:px-desktop bg-[#F3F7F5] rounded-2xl">
 
 
 
