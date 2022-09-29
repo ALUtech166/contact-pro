@@ -34,27 +34,14 @@
                </section>
 
                <section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop  lg:mx-desktop bg-[#F3F7F5] lg:rounded-2xl">
-                    <div class=" divide-x-2">
+                    <div class="">
                          <div class="basis-1/2 space-x-10">
                               <h1
                                    class="font-serif font-bold text-center text-blue-800 uppercase lg:text-4xl text-md  z-40 animate-slideDown">
                                    Contactez-Nous
                               </h1>
                          </div>
-                         <div class="flex items-center justify-evenly space-x-10 basis-1/2">
-                              <div class="text-center relative">
-                                   <div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-green-400/50 z-10">
-                                   </div>
-                                   <!-- <h1 class="font-bold text-8xl">12</h1>
-							<p class="uppercase font-bold text-gray-500">Countries</p> -->
-                              </div>
-                              <div class="text-center relative">
-                                   <div class=" left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10">
-                                   </div>
-                                   <!-- <h1 class="font-bold text-8xl">11K</h1>
-							<p class="uppercase font-bold text-gray-500">Participants</p> -->
-                              </div>
-                         </div>
+                         
                     </div>
                </section>
 

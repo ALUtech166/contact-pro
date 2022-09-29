@@ -15,19 +15,19 @@
                <ul class="font-serif items-center space-x-14 hidden lg:flex">
                     <li class="group space-x-10" @click="activeLink = link" :class="{ 'text-gray-500': activeLink != link }">
                
-                         <NuxtLink class="font-medium uppercase" to="/">Accueil</NuxtLink>
-                         <NuxtLink class="font-medium uppercase" to="/service">Nos Services</NuxtLink>
-                         <NuxtLink class="font-medium uppercase" to="/entreprise">Entreprises</NuxtLink>
-                         <NuxtLink class="font-medium uppercase" to="/contact">Contact</NuxtLink>
+                         <NuxtLink class="font-medium text-xl" to="/">Accueil</NuxtLink>
+                         <NuxtLink class="font-medium text-xl" to="/service">Nos Services</NuxtLink>
+                         <NuxtLink class="font-medium text-xl" to="/entreprise">Entreprises</NuxtLink>
+                         <NuxtLink class="font-medium text-xl" to="/contact">Contact</NuxtLink>
                
                
                
                     </li>
                </ul>
                <div class="font-serif space-x-8 hidden lg:block">
-                    <NuxtLink class="font-medium uppercase" @click="showModal = !showModal" to="#">Connexion</NuxtLink>
+                    <NuxtLink class="font-medium text-xl" @click="showModal = !showModal" to="#">Connexion</NuxtLink>
                     <NuxtLink @click="showModal2 = !showModal2"
-                         class="text-white uppercase py-3 px-7 rounded-md bg-green-600 font-medium hover:bg-orange-600 hover:text-white transition-all"
+                         class="text-white text-xl py-3 px-7 rounded-md bg-green-600 font-medium hover:bg-orange-600 hover:text-white transition-all"
                          to="#">Inscription</NuxtLink>
                </div>
 

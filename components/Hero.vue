@@ -34,7 +34,7 @@
 
 
 							<nuxt-link to="/result" type="submit"
-								class="block text-serif bg-orange-600 hover:bg-green-600 hover:text-white w-1/2 py-4 px-3 text-center rounded-md font-bold text-white z-40 animate-slideDown">
+								class="block text-serif bg-blue-800 hover:bg-green-600 hover:text-white w-1/2 py-4 px-3 text-center rounded-md font-bold text-white z-40 animate-slideDown">
 								Rechercher
 							</nuxt-link>
 
