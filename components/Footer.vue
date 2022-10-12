@@ -6,7 +6,7 @@
 
                          <h1 class="">
                               <!-- CONTACT<span class="text-red-600">PRO</span> -->
-                              <img class="h-20" src="../public/Ok-1.svg" alt="">
+                              <img class="h-20" src="../public/Ok-1.png" alt="">
                          </h1>
 
                          <div class="lg:py-2 lg:text-center flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 flex-nowrap  space-y-8">
@@ -41,31 +41,31 @@
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
                                   
                                    <nuxt-link to="/">
-                                        <img src="../public/Ok-2.svg" alt="">
+                                        <img src="../public/Ok-2.png" alt="">
                                    </nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
                                   
                                    <nuxt-link to="/">
-                                        <img src="../public/social.svg" alt="">
+                                        <img src="../public/social.png" alt="">
                                    </nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
                                   
                                    <nuxt-link to="/">
-                                        <img src="../public/social-1.svg" alt="">
+                                        <img src="../public/social-1.png" alt="">
                                    </nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <nuxt-link to="/"><img src="../public/social-2.svg" alt=""></nuxt-link>
+                                   <nuxt-link to="/"><img src="../public/social-2.png" alt=""></nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
                                    <nuxt-link to="/">
-                                        <img src="../public/social-3.svg" alt="">
+                                        <img src="../public/social-3.png" alt="">
                                    </nuxt-link>
                               </div>
 

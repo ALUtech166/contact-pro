@@ -109,7 +109,7 @@
                          <div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10">
                          </div>
 
-                         <img src="../public/image.svg" alt="">
+                         <img src="../public/image.png" alt="">
                     </div>
                     <div class="basis-1/2">
                          <h1

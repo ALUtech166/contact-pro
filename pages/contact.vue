@@ -114,32 +114,32 @@
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
 
-                                   <nuxt-link to="/">
-                                        <img src="../public/Ok-2.svg" alt="">
+                                   <nuxt-link to="#">
+                                        <img src="../public/social.png" alt="">
                                    </nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
 
-                                   <nuxt-link to="/">
-                                        <img src="../public/social.svg" alt="">
+                                   <nuxt-link to="#">
+                                        <img src="../public/social-1.png" alt="">
                                    </nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
 
-                                   <nuxt-link to="/">
-                                        <img src="../public/social-1.svg" alt="">
+                                   <nuxt-link to="#">
+                                        <img src="../public/social-2.png" alt="">
                                    </nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <nuxt-link to="/"><img src="../public/social-2.svg" alt=""></nuxt-link>
+                                   <nuxt-link to="#"><img src="../public/social-3.png" alt=""></nuxt-link>
                               </div>
                               <div
                                    class="font-sans font-bold text-left text-white text-justify  uppercase text-lg  z-40 animate-slideDown">
-                                   <nuxt-link to="/">
-                                        <img src="../public/social-3.svg" alt="">
+                                   <nuxt-link to="#">
+                                        <img src="../public/Ok-2.png" alt="">
                                    </nuxt-link>
                               </div>
 
