@@ -150,7 +150,7 @@
                     </div>
 
                     <ul class="divide-y font-serif">
-                         <li><NuxtLink to="/" @click="isOpen = false" class="my-4 inline-block">Home</NuxtLink></li>
+                         <li><NuxtLink to="/" @click="isOpen = false" class="my-4 inline-block">Accueil</NuxtLink></li>
                          <li><NuxtLink to="/service" @click="isOpen = false" class="my-4 inline-block">Nos Services</NuxtLink></li>
                          <li><NuxtLink to="/entreprise" @click="isOpen = false" class="my-4 inline-block">Entreprises</NuxtLink></li>
                          <li><NuxtLink to="/contact" @click="isOpen = false" class="my-4 inline-block">Contact</NuxtLink></li>

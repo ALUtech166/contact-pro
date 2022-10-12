@@ -1,4 +1,4 @@
-import { toRef, isRef, computed, defineComponent, inject, provide, h, Suspense, Transition, reactive, mergeProps, useSSRContext, unref, withCtx, createTextVNode, toDisplayString, createVNode, withModifiers, getCurrentInstance, ref, resolveComponent, watchEffect, markRaw, openBlock, createElementBlock, shallowRef, createApp, defineAsyncComponent, onErrorCaptured, createElementVNode, createStaticVNode } from 'vue';
+import { toRef, isRef, computed, defineComponent, inject, provide, h, Suspense, Transition, reactive, mergeProps, useSSRContext, withCtx, createVNode, unref, createTextVNode, withModifiers, getCurrentInstance, ref, resolveComponent, watchEffect, markRaw, openBlock, createElementBlock, shallowRef, createApp, defineAsyncComponent, onErrorCaptured, createElementVNode, createStaticVNode } from 'vue';
 import { $fetch } from 'ohmyfetch';
 import { joinURL, hasProtocol, isEqual, parseURL } from 'ufo';
 import { createHooks } from 'hookable';
@@ -7,7 +7,7 @@ import { RouterView, createMemoryHistory, createRouter } from 'vue-router';
 import { createError as createError$1, sendRedirect } from 'h3';
 import defu, { defuFn } from 'defu';
 import { isFunction } from '@vue/shared';
-import { ssrRenderAttrs, ssrRenderSlot, ssrRenderAttr, ssrRenderList, ssrRenderClass, ssrRenderComponent, ssrInterpolate, ssrRenderSuspense } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrRenderAttr, ssrRenderClass, ssrRenderStyle, ssrRenderSuspense } from 'vue/server-renderer';
 import { a as useRuntimeConfig$1 } from './node-server.mjs';
 import 'node-fetch-native/polyfill';
 import 'http';
@@ -379,7 +379,7 @@ function defineNuxtLink(options) {
     }
   });
 }
-const __nuxt_component_0$1 = defineNuxtLink({ componentName: "NuxtLink" });
+const __nuxt_component_0 = defineNuxtLink({ componentName: "NuxtLink" });
 const inlineConfig = {};
 defuFn(inlineConfig);
 function useHead(meta2) {
@@ -401,8 +401,8 @@ var HEAD_COUNT_KEY = `head:count`;
 var HEAD_ATTRS_KEY = `data-head-attrs`;
 var SELF_CLOSING_TAGS = ["meta", "link", "base"];
 var BODY_TAG_ATTR_NAME = `data-meta-body`;
-var createElement = (tag, attrs, document) => {
-  const el = document.createElement(tag);
+var createElement = (tag, attrs, document2) => {
+  const el = document2.createElement(tag);
   for (const key of Object.keys(attrs)) {
     if (key === "body" && attrs.body === true) {
       el.setAttribute(BODY_TAG_ATTR_NAME, "true");
@@ -555,10 +555,10 @@ var setAttrs = (el, attrs) => {
     el.removeAttribute(HEAD_ATTRS_KEY);
   }
 };
-var updateElements = (document = window.document, type, tags) => {
+var updateElements = (document2 = window.document, type, tags) => {
   var _a, _b;
-  const head = document.head;
-  const body = document.body;
+  const head = document2.head;
+  const body = document2.body;
   let headCountEl = head.querySelector(`meta[name="${HEAD_COUNT_KEY}"]`);
   let bodyMetaElements = body.querySelectorAll(`[${BODY_TAG_ATTR_NAME}]`);
   const headCount = headCountEl ? Number(headCountEl.getAttribute("content")) : 0;
@@ -578,7 +578,7 @@ var updateElements = (document = window.document, type, tags) => {
       }
     }
   } else {
-    headCountEl = document.createElement("meta");
+    headCountEl = document2.createElement("meta");
     headCountEl.setAttribute("name", HEAD_COUNT_KEY);
     headCountEl.setAttribute("content", "0");
     head.append(headCountEl);
@@ -586,7 +586,7 @@ var updateElements = (document = window.document, type, tags) => {
   let newElements = tags.map((tag) => {
     var _a2;
     return {
-      element: createElement(tag.tag, tag.props, document),
+      element: createElement(tag.tag, tag.props, document2),
       body: (_a2 = tag.props.body) != null ? _a2 : false
     };
   });
@@ -684,7 +684,7 @@ var createHead = (initHeadObject) => {
     removeHeadObjs(objs) {
       allHeadObjs = allHeadObjs.filter((_objs) => _objs !== objs);
     },
-    updateDOM(document = window.document) {
+    updateDOM(document2 = window.document) {
       let title;
       let htmlAttrs = {};
       let bodyAttrs = {};
@@ -706,13 +706,13 @@ var createHead = (initHeadObject) => {
         actualTags[tag.tag].push(tag);
       }
       if (title !== void 0) {
-        document.title = title;
+        document2.title = title;
       }
-      setAttrs(document.documentElement, htmlAttrs);
-      setAttrs(document.body, bodyAttrs);
+      setAttrs(document2.documentElement, htmlAttrs);
+      setAttrs(document2.body, bodyAttrs);
       const tags = /* @__PURE__ */ new Set([...Object.keys(actualTags), ...previousTags]);
       for (const tag of tags) {
-        updateElements(document, tag, actualTags[tag] || []);
+        updateElements(document2, tag, actualTags[tag] || []);
       }
       previousTags.clear();
       Object.keys(actualTags).forEach((i) => previousTags.add(i));
@@ -1238,42 +1238,122 @@ function render$7(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$7, _hoisted_3$5);
 }
 const CloseIcon = { render: render$7 };
-const _sfc_main$5 = {
-  __name: "Header",
+const __default__ = {
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    drawer() {
+      this.isOpen = !this.isOpen;
+    }
+  },
+  watch: {
+    isOpen: {
+      immediate: true,
+      handler(isOpen) {
+      }
+    }
+  },
+  mounted() {
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode == 27 && this.isOpen)
+        this.isOpen = false;
+    });
+  }
+};
+const _sfc_main$5 = /* @__PURE__ */ Object.assign(__default__, {
+  __name: "Top",
   __ssrInlineRender: true,
   setup(__props) {
-    const activeLink = useState("activeLink", () => "Home", "$svjqo3Xx76");
-    const links = ["Accueil", "Nos Services", "Entreprises", "Contact"];
-    const showModal = useState("showModal", () => false, "$ZuHZpcbL5C");
-    const showModal2 = useState("showModal2", () => false, "$hEaGpdKbme");
+    const activeLink = useState("activeLink", () => "Home", "$ToqeupcDdr");
+    const showModal = useState("showModal", () => false, "$t9T9uLMFb5");
+    const showModal2 = useState("showModal2", () => false, "$hCI5M0SzCd");
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_nuxt_link = __nuxt_component_0;
+      const _component_NuxtLink = __nuxt_component_0;
       const _component_Modal = _sfc_main$6;
-      _push(`<header${ssrRenderAttrs(mergeProps({ class: "flex items-center justify-between py-7 lg:px-desktop mx-auto sticky top-0 z-50 bg-white/80" }, _attrs))}><h1 class="font-bold text-2xl"><img${ssrRenderAttr("src", _imports_0$4)} alt=""></h1><ul class="font-serif items-center space-x-14 hidden lg:flex"><!--[-->`);
-      ssrRenderList(links, (link, i) => {
-        _push(`<li class="${ssrRenderClass([{ "text-gray-500": unref(activeLink) != link }, "group"])}">`);
-        _push(ssrRenderComponent(_component_NuxtLink, {
-          class: [{
-            "text-black": unref(activeLink) == link
-          }, "font-medium group-hover:text-black transition-all duration-300"],
-          to: "/"
-        }, {
-          default: withCtx((_, _push2, _parent2, _scopeId) => {
-            if (_push2) {
-              _push2(`${ssrInterpolate(link)}`);
-            } else {
-              return [
-                createTextVNode(toDisplayString(link), 1)
-              ];
-            }
-          }),
-          _: 2
-        }, _parent));
-        _push(`<div class="${ssrRenderClass([{ "bg-black scale-y-100": unref(activeLink) == link }, "h-0.5 mt-0.5 group-hover:scale-y-100 group-hover:bg-black group-hover:block w-[80%] transition-all duration-300"])}"></div></li>`);
-      });
-      _push(`<!--]--></ul><div class="font-serif space-x-8 hidden lg:block">`);
+      _push(`<header${ssrRenderAttrs(mergeProps({ class: "py-4 mx-auto sticky top-0 z-50 bg-white/80" }, _attrs))}><div class="flex lg:flex-row items-center justify-between py-4 lg:px-desktop mx-auto sticky top-0 z-50 bg-white"><div class="flex space-x-2 justify-end"><h1 class="font-bold text-2xl">`);
+      _push(ssrRenderComponent(_component_nuxt_link, { to: "/" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_0$4)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_0$4,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</h1><input required type="search" name="search" id="search" placeholder="Recherche" class="w-1/2 invisible lg:visible xl:visible md:visible py-3 px-8 drop-shadow-md rounded-md border border-orange-600 focus:ring-0 focus:border-green-400 animate-slideRight"></div><ul class="font-serif items-center space-x-14 hidden lg:flex"><li class="${ssrRenderClass([{ "text-gray-500": unref(activeLink) != _ctx.link }, "group space-x-10"])}">`);
       _push(ssrRenderComponent(_component_NuxtLink, {
-        class: "font-medium",
+        class: "font-medium text-xl",
+        to: "/"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Accueil`);
+          } else {
+            return [
+              createTextVNode("Accueil")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        class: "font-medium text-xl",
+        to: "/service"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Nos Services`);
+          } else {
+            return [
+              createTextVNode("Nos Services")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        class: "font-medium text-xl",
+        to: "/entreprise"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Entreprises`);
+          } else {
+            return [
+              createTextVNode("Entreprises")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        class: "font-medium text-xl",
+        to: "/contact"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Contact`);
+          } else {
+            return [
+              createTextVNode("Contact")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li></ul><div class="font-serif space-x-8 hidden lg:block">`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        class: "font-medium text-xl",
         onClick: ($event) => showModal.value = !unref(showModal),
         to: "#"
       }, {
@@ -1290,7 +1370,7 @@ const _sfc_main$5 = {
       }, _parent));
       _push(ssrRenderComponent(_component_NuxtLink, {
         onClick: ($event) => showModal2.value = !unref(showModal2),
-        class: "border border-black py-3 px-7 rounded-full font-medium hover:bg-orange-600 hover:text-white transition-all",
+        class: "text-white text-xl py-3 px-7 rounded-md bg-green-600 font-medium hover:bg-orange-600 hover:text-white transition-all",
         to: "#"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -1456,14 +1536,132 @@ const _sfc_main$5 = {
         }),
         _: 1
       }, _parent));
-      _push(`</header>`);
+      _push(`<div class="md:hidden"><button><svg class="h-8 w-8 fill-current text-black" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div><div style="${ssrRenderStyle(_ctx.isOpen ? null : { display: "none" })}" class="z-10 fixed inset-0 transition-opacity"><div class="absolute inset-0 bg-black opacity-50" tabindex="0"></div></div><aside class="${ssrRenderClass([_ctx.isOpen ? "translate-x-0" : "-translate-x-full", "p-5 transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"])}"><div class="close"><button class="absolute top-0 right-0 mt-4 mr-4"><svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M6 18L18 6M6 6l12 12"></path></svg></button></div><span class="flex w-full items-center py-2 border-b">`);
+      _push(ssrRenderComponent(_component_nuxt_link, { to: "/" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<img${ssrRenderAttr("src", _imports_0$4)} alt=""${_scopeId}>`);
+          } else {
+            return [
+              createVNode("img", {
+                src: _imports_0$4,
+                alt: ""
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</span><span class="flex w-full items-center border-b"><input required type="search" name="search" id="search" placeholder="Recherche" class="w-full drop-shadow-md rounded-md border border-orange-600 focus:ring-0 focus:border-green-400 animate-slideRight"></span><div class="font-serif space-x-8 lg:block"></div><ul class="divide-y font-serif"><li>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/",
+        onClick: ($event) => _ctx.isOpen = false,
+        class: "my-4 inline-block"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Accueil`);
+          } else {
+            return [
+              createTextVNode("Accueil")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li><li>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/service",
+        onClick: ($event) => _ctx.isOpen = false,
+        class: "my-4 inline-block"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Nos Services`);
+          } else {
+            return [
+              createTextVNode("Nos Services")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li><li>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/entreprise",
+        onClick: ($event) => _ctx.isOpen = false,
+        class: "my-4 inline-block"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Entreprises`);
+          } else {
+            return [
+              createTextVNode("Entreprises")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li><li>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/contact",
+        onClick: ($event) => _ctx.isOpen = false,
+        class: "my-4 inline-block"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Contact`);
+          } else {
+            return [
+              createTextVNode("Contact")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li><li>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        onClick: ($event) => (showModal.value = !unref(showModal), _ctx.isOpen = false),
+        class: "my-4 w-full text-center font-semibold cta inline-block bg-blue-800 hover:bg-blue-600 px-3 py-2 rounded text-white",
+        to: "#"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Connexion`);
+          } else {
+            return [
+              createTextVNode("Connexion")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li><li>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        onClick: ($event) => (showModal2.value = !unref(showModal2), _ctx.isOpen = false),
+        class: "my-2 w-full text-center font-semibold cta inline-block bg-green-600 hover:bg-orange-600 px-3 py-2 rounded text-white hover:bg-orange-600 hover:text-white transition-all",
+        to: "#"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Inscription`);
+          } else {
+            return [
+              createTextVNode("Inscription")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</li></ul><div class="follow"><p class="italic font-sans text-sm">Suivez-nous sur nos Pages:</p><div class="social flex space-x-5 mt-4"><a href="#"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="h-5 w-5 fill-current text-gray-900 hover:text-blue-800 hover:rounded-full" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></a><a href="#"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="h-5 w-5 fill-current text-gray-900 hover:text-blue-800 hover:rounded-full" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg></a><a href="#"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="h-5 w-5 fill-current text-gray-900 hover:text-blue-800 hover:rounded-full" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a><a href="#"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" class="h-5 w-5 fill-current text-gray-900 hover:text-blue-800 hover:rounded-full" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></a></div></div></aside></div></header>`);
     };
   }
-};
+});
 const _sfc_setup$5 = _sfc_main$5.setup;
 _sfc_main$5.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Header.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Top.vue");
   return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
 };
 const _hoisted_1$6 = {
@@ -1585,8 +1783,8 @@ const _export_sfc = (sfc, props) => {
 };
 const _sfc_main$4 = {};
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_nuxt_link = __nuxt_component_0$1;
-  _push(`<div${ssrRenderAttrs(_attrs)}><section class="py-16 px-16 bg-blue-800 h-100"><div class="flex divide-x-2"><div class="basis-1/2 flex space-x-5"><h1 class=""><img class="h-20"${ssrRenderAttr("src", _imports_0$3)} alt=""></h1><div class="flex flex-nowrap py-4 space-x-10"><div class="font-sans font-bold text-left text-white text-justify uppercase text-lg z-40 animate-slideDown">`);
+  const _component_nuxt_link = __nuxt_component_0;
+  _push(`<div${ssrRenderAttrs(_attrs)}><section class="py-8 px-24 bg-blue-800 h-100"><div class="lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 space-y-8"><div class="basis-3/4 flex flex-col lg:flex-row lg:space-x-8 space-x-4"><h1 class=""><img class="h-20"${ssrRenderAttr("src", _imports_0$3)} alt=""></h1><div class="lg:py-2 lg:text-center flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 flex-nowrap space-y-8"><div class="font-sans lg:my-8 font-bold text-left text-white text-justify uppercase text-md z-40 animate-slideDown">`);
   _push(ssrRenderComponent(_component_nuxt_link, { to: "/" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -1599,7 +1797,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="font-sans font-bold text-left text-white text-justify uppercase text-lg z-40 animate-slideDown">`);
+  _push(`</div><div class="font-sans font-bold text-left text-white text-justify uppercase text-md z-40 animate-slideDown">`);
   _push(ssrRenderComponent(_component_nuxt_link, { to: "/service" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -1612,7 +1810,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="font-sans font-bold text-left text-white text-justify uppercase text-lg z-40 animate-slideDown">`);
+  _push(`</div><div class="font-sans font-bold text-left text-white text-justify uppercase text-md z-40 animate-slideDown">`);
   _push(ssrRenderComponent(_component_nuxt_link, { to: "/entreprise" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -1625,7 +1823,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div><div class="font-sans font-bold text-left text-white text-justify uppercase text-lg z-40 animate-slideDown">`);
+  _push(`</div><div class="font-sans font-bold text-left text-white text-justify uppercase text-md z-40 animate-slideDown">`);
   _push(ssrRenderComponent(_component_nuxt_link, { to: "/contact" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -1638,7 +1836,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div></div><div class="flex items-center justify-evenly space-x-10 basis-1/2"><div class="text-center relative"><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-green-400/50 z-10"></div></div><div class="text-center relative"><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10"></div></div><div class="flex flex-nowrap space-x-10"><div class="font-sans font-bold text-left text-white text-justify uppercase text-lg z-40 animate-slideDown">`);
+  _push(`</div></div></div><div class="flex py-4 text-left justify-evenly space-x-10 basis-1/4"><div class="flex flex-nowrap space-x-10"><div class="font-sans font-bold text-left text-white text-justify uppercase text-lg z-40 animate-slideDown">`);
   _push(ssrRenderComponent(_component_nuxt_link, { to: "/" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -1718,7 +1916,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div></div></div><p class="text-right py-4 px-24 font-bold text-white text-lg">Copyright \xA9 Contact Pro Afrique 2022</p></section></div>`);
+  _push(`</div></div></div></div><p class="px-4 py-4 lg:text-center font-bold text-white text-sm lg:text-lg">Copyright \xA9 Contact Pro Afrique 2022</p></section></div>`);
 }
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
@@ -1726,9 +1924,9 @@ _sfc_main$4.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Footer.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$2]]);
+const __nuxt_component_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$2]]);
+const meta$4 = void 0;
 const meta$3 = void 0;
-const meta$2 = void 0;
 const _imports_0$1 = "data:image/png;base64,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";
 const _imports_0 = "" + globalThis.__buildAssetsURL("img.da61cb3a.png");
 const _imports_1 = "" + globalThis.__buildAssetsURL("img2.200f4593.png");
@@ -1751,7 +1949,7 @@ function render(_ctx, _cache) {
 const _imports_5 = { render };
 const _sfc_main$3 = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  _push(`<div${ssrRenderAttrs(_attrs)} data-v-3cbcbaaf><section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#fff] rounded-2xl" data-v-3cbcbaaf><div class="flex divide-x-2" data-v-3cbcbaaf><div class="basis-1/2" data-v-3cbcbaaf><h1 class="font-serif font-bold text-left text-orange-700 text-justify uppercase text-4xl z-40 animate-slideDown" data-v-3cbcbaaf> Notre Mission </h1><p class="font-sans text-left text-lg py-8" data-v-3cbcbaaf> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. </p></div><div class="flex items-center justify-evenly space-x-10 basis-1/2" data-v-3cbcbaaf><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10" data-v-3cbcbaaf></div><img${ssrRenderAttr("src", _imports_0$1)} alt="" data-v-3cbcbaaf></div></div></section><section class="p-8 lg:px-desktop bg-[#F3F7F5] rounded-2xl" data-v-3cbcbaaf><div class="divide-x-2" data-v-3cbcbaaf><div class="space-x-10 p-8" data-v-3cbcbaaf><h1 class="font-serif font-bold text-left p-8 w-1/3 text-blue-900 uppercase text-4xl z-40 animate-slideDown" data-v-3cbcbaaf> Notre Histoire </h1><div class="flex items-center justify-evenly space-x-10 basis-1/2" data-v-3cbcbaaf><div class="text-center relative" data-v-3cbcbaaf><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-green-500/50 z-10" data-v-3cbcbaaf></div></div><div class="text-center relative" data-v-3cbcbaaf><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-600/50 z-10" data-v-3cbcbaaf></div></div></div><p class="font-sans text-left text-xl text-gray-600 py-4" data-v-3cbcbaaf> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. </p></div></div></section><section class="mt-8 p-8 lg:px-desktop bg-white rounded-2xl" data-v-3cbcbaaf><div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12" data-v-3cbcbaaf><div class="flex justify-end" data-v-3cbcbaaf><img class="image"${ssrRenderAttr("src", _imports_0)} alt="" data-v-3cbcbaaf></div><div class="flex justify-center" data-v-3cbcbaaf><img class="image"${ssrRenderAttr("src", _imports_1)} alt="" data-v-3cbcbaaf></div><div class="flex justify-start" data-v-3cbcbaaf><img class="image"${ssrRenderAttr("src", _imports_2)} alt="" data-v-3cbcbaaf></div></div></section><section class="p-8 lg:px-desktop bg-white rounded-2xl" data-v-3cbcbaaf><div class="justify-center" data-v-3cbcbaaf><img class="image"${ssrRenderAttr("src", _imports_3)} alt="" data-v-3cbcbaaf></div></section><section class="p-8 lg:px-desktop bg-gray-200 rounded-2xl border-orange-400" data-v-3cbcbaaf><div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12" data-v-3cbcbaaf><div class="flex items-center justify-evenly space-x-10 basis-1/2" data-v-3cbcbaaf><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10" data-v-3cbcbaaf></div><img${ssrRenderAttr("src", _imports_5)} alt="" data-v-3cbcbaaf></div><div class="basis-1/2" data-v-3cbcbaaf><h1 class="font-serif font-bold text-left text-orange-700 text-justify uppercase text-4xl z-40 animate-slideDown" data-v-3cbcbaaf> Notre Mission </h1><p class="font-sans text-left text-lg py-8" data-v-3cbcbaaf> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. </p><button class="rounded-2xl bg-orange-600 px-4 py-4 text-xl" data-v-3cbcbaaf>Lire Plus</button></div></div></section></div>`);
+  _push(`<div${ssrRenderAttrs(_attrs)} data-v-b87799d0><section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#fff] rounded-2xl" data-v-b87799d0><div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12" data-v-b87799d0><div class="basis-1/2" data-v-b87799d0><h1 class="font-serif font-bold text-left text-orange-700 text-justify uppercase text-4xl z-40 animate-slideDown" data-v-b87799d0> Notre Mission </h1><p class="font-sans text-left text-lg py-8" data-v-b87799d0> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. </p></div><div class="flex items-center justify-evenly space-x-10 basis-1/2" data-v-b87799d0><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10" data-v-b87799d0></div><img${ssrRenderAttr("src", _imports_0$1)} alt="" data-v-b87799d0></div></div></section><section class="p-8 bg-[#F3F7F5] rounded-2xl" data-v-b87799d0><div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12" data-v-b87799d0><div class="flex items-center justify-evenly space-x-10 basis-1/2" data-v-b87799d0><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10" data-v-b87799d0></div><div class="text-center relative" data-v-b87799d0><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-green-400/50 z-10" data-v-b87799d0></div></div><div class="text-center relative" data-v-b87799d0><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10" data-v-b87799d0></div></div></div><div class="basis-1/2" data-v-b87799d0><h1 class="font-serif font-bold text-left p-4 text-blue-900 uppercase text-4xl z-40 animate-slideDown" data-v-b87799d0> Notre Histoire </h1><p class="font-sans text-left text-xl text-gray-600 py-4" data-v-b87799d0> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. </p></div></div></section><section class="mt-8 p-8 lg:px-desktop bg-white rounded-2xl" data-v-b87799d0><div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 space-y-4" data-v-b87799d0><div class="flex justify-end" data-v-b87799d0><img class="image"${ssrRenderAttr("src", _imports_0)} alt="" data-v-b87799d0></div><div class="flex justify-center" data-v-b87799d0><img class="image"${ssrRenderAttr("src", _imports_1)} alt="" data-v-b87799d0></div><div class="flex justify-start" data-v-b87799d0><img class="image"${ssrRenderAttr("src", _imports_2)} alt="" data-v-b87799d0></div></div></section><section class="p-8 lg:px-desktop bg-white rounded-2xl" data-v-b87799d0><div class="justify-center" data-v-b87799d0><img class="image"${ssrRenderAttr("src", _imports_3)} alt="" data-v-b87799d0></div></section><section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-gray-200 rounded-2xl border-orange-400" data-v-b87799d0><div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12" data-v-b87799d0><div class="flex items-center justify-evenly space-x-10 basis-1/2" data-v-b87799d0><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10" data-v-b87799d0></div><img${ssrRenderAttr("src", _imports_5)} alt="" data-v-b87799d0></div><div class="basis-1/2" data-v-b87799d0><h1 class="font-serif font-bold text-left text-orange-700 text-justify uppercase text-4xl z-40 animate-slideDown" data-v-b87799d0> Notre Mission </h1><p class="font-sans text-left text-lg py-8" data-v-b87799d0> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, alias, architecto est repudiandae natus, mollitia itaque optio nisi debitis impedit magnam deleniti consequatur libero laudantium id amet esse quis minus. </p><button type="submit" class="block text-serif bg-orange-600 py-3 px-8 rounded-md font-bold text-white z-40 animate-slideRight" data-v-b87799d0> Lire Plus </button></div></div></section></div>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
@@ -1759,17 +1957,35 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/About.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-3cbcbaaf"]]);
+const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-b87799d0"]]);
 const _sfc_main$2 = {
   data: () => ({
     show: false
   })
 };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_About = __nuxt_component_0;
-  _push(`<section${ssrRenderAttrs(mergeProps({ class: "lg:mx-desktop rounded-2xl p-8 mt-8" }, _attrs))}><div class="hero rounded-xl"><div class="basis-1/2 pl-20 pt-8 relative"><div class="absolute right-[10%] top-1/2 rounded-full w-5 h-5 bg-green-900"></div><div class="absolute left-[40%] bottom-7 rounded-full w-5 h-5 bg-yellow-500"></div><h1 class="font-serif py-24 font-bold px-8 text-center text-white uppercase text-6xl leading-[1.15] relative z-40 animate-slideDown"><div class="absolute right-[20%] top-0 rounded-full w-20 h-20 bg-green-400/50 z-30"></div> Bienvenue Chez Nous ! </h1></div></div><section class="py-8 px-8 bg-[#F3F7F5] rounded-2xl"><div class="p-4 text-center"><h1 class="font-serif font-bold bg-white rounded-sm shadow-lg p-8 w-1/2 justify-center text-left m-8 uppercase text-blue-800 text-5xl leading-[1.15] relative z-40 animate-slideDown"> Nos Services</h1><div class="py-4 px-4 lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12"><div class="flex justify-end"><div class="hero1 p-4 rounded-lg items-center"><h1 class="font-sans px-8 py-8 text-orange-600 font-bold text-left m-8 uppercase text-white-600 text-xl z-40 animate-slideDown"> Annuaire Professionnel</h1><p class="px-16 py-16 justify text-white text-justify"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima similique optio? Cumque porro dolorem dignissimos, facilis tenetur temporibus architecto quia. </p></div></div><div class="flex justify-center"><div class="hero2 rounded-lg items-center"><h1 class="font-sans px-8 py-8 text-orange-600 font-bold justify-center text-left m-8 uppercase text-white-600 text-xl z-40 animate-slideDown"> Communication</h1><p class="px-16 py-16 justify text-white text-justify"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima similique optio? Cumque porro dolorem dignissimos, facilis tenetur temporibus architecto quia. </p></div></div><div class="flex justify-start"><div class="hero3 rounded-lg"><h1 class="font-sans px-8 py-8 text-orange-600 font-bold justify-center text-left m-8 uppercase text-white-600 text-xl z-40 animate-slideDown"> Solutions digital</h1><p class="px-16 py-16 text-white text-justify"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima similique optio? Cumque porro dolorem dignissimos, facilis tenetur temporibus architecto quia.</p></div></div></div></div></section><section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl"><div class="flex divide-x-2"><div class="basis-1/2 flex space-x-10"><h1 class="font-serif font-bold text-center text-blue-800 uppercase text-4xl leading-[1.15] relative z-40 animate-slideDown"> Ils Nous Font <br> Confiance ! </h1></div><div class="flex items-center justify-evenly space-x-10 basis-1/2"><div class="text-center relative"><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-green-400/50 z-10"></div></div><div class="text-center relative"><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10"></div></div></div></div></section>`);
+  const _component_nuxt_link = __nuxt_component_0;
+  const _component_About = __nuxt_component_1$1;
+  _push(`<section${ssrRenderAttrs(mergeProps({ class: "" }, _attrs))}><div class="hero"><div class=""><div class="absolute right-[10%] top-1/2 rounded-full w-5 h-5 bg-green-900"></div><h1 class="font-serif lg:py-desktop font-bold px-16 py-4 text-center text-white uppercase md:text-4xl lg:text-6xl text-2xl z-40 animate-slideDown"><div class="absolute right-[20%] top-0 rounded-full lg:w-20 lg:h-20 bg-green-400/50 z-30"></div> Bienvenue Chez Nous ! </h1><div class="lg:pr-4 items-center justify-center"><div class=""><div class="lg:py-4 lg:px-16 md:px-16 lg:px-16 xl:px-16 md:flex lg:flex xl:flex md:flex-nowrap lg:flex-nowrap xl:flex-nowrap space-x-10 lg:space-y-0 md:space-y-0 xl:space-y-0 space-y-2"><select class="lg:w-1/2 lg:w-full text-serif py-4 mx-10 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideDown" name="email" id="email"><option>Soci\xE9t\xE9s</option><option>Professionnel</option></select><input required type="email" name="email" id="email" placeholder="Que recherchez-vous?" class="lg:w-full text-serif py-4 px-16 rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideDown"><input required type="email" name="email" id="email" placeholder="O\xF9?" class="lg:w-full py-4 px-16 drop-shadow-md rounded-md border border-gray-300 focus:ring-0 focus:border-green-400 z-40 animate-slideDown">`);
+  _push(ssrRenderComponent(_component_nuxt_link, {
+    to: "/result",
+    type: "submit",
+    class: "block text-serif bg-blue-800 hover:bg-green-600 hover:text-white w-1/2 py-4 px-3 text-center rounded-md font-bold text-white z-40 animate-slideDown"
+  }, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(` Rechercher `);
+      } else {
+        return [
+          createTextVNode(" Rechercher ")
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+  _push(`</div></div></div></div></div><section class="py-8 lg:px-8 bg-[#F3F7F5] rounded-2xl"><div class="lg:p-4 text-center"><h1 class="font-serif font-bold bg-white rounded-sm shadow-lg p-8 w-full lg:w-1/2 justify-center text-left lg:m-8 uppercase text-blue-800 md:text-4xl lg:text-4xl text-center text-2xl z-40 animate-slideDown"> Nos Services</h1><div class="lg:py-4 flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12"><div class="flex justify-center"><div class="hero1 lg:p-4 rounded-lg items-center"><h1 class="font-sans bg-white rounded-sm shadow-lg px-16 py-8 text-orange-600 font-bold text-left m-8 uppercase text-white-600 text-md z-40 animate-slideDown"> Annuaire Professionnel</h1><p class="px-16 py-16 justify text-white text-justify"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima similique optio? Cumque porro dolorem dignissimos, facilis tenetur temporibus architecto quia. </p></div></div><div class="flex justify-center"><div class="hero2 rounded-lg items-center"><h1 class="font-sans px-16 py-8 bg-white rounded-sm shadow text-orange-600 font-bold justify-center text-left m-8 uppercase text-white-600 text-md z-40 animate-slideDown"> Communication</h1><p class="px-16 py-16 justify text-white text-justify"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima similique optio? Cumque porro dolorem dignissimos, facilis tenetur temporibus architecto quia. </p></div></div><div class="flex justify-start"><div class="hero3 rounded-lg items-center"><h1 class="font-sans px-16 py-8 bg-white rounded-sm shadow text-orange-600 font-bold justify-center text-left m-8 uppercase text-white-600 text-md z-40 animate-slideDown"> Solutions digital</h1><p class="px-16 py-16 text-white text-justify"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima similique optio? Cumque porro dolorem dignissimos, facilis tenetur temporibus architecto quia.</p></div></div></div></div></section>`);
   _push(ssrRenderComponent(_component_About, null, null, _parent));
-  _push(`</section>`);
+  _push(`<section class="mt-10 py-8 px-8 mx-8 my-8 lg:px-desktop lg:mx-desktop bg-[#F3F7F5] rounded-2xl"><div class="flex flex-col lg:flex-row lg:space-x-4 lg:space-x-12 divide-x-2"><div class="basis-1/2 flex space-x-10"><h1 class="font-serif font-bold text-center text-blue-800 uppercase lg:text-4xl text-2xl z-40 animate-slideDown"> Ils Nous Font <br> Confiance ! </h1></div><div class="flex items-center justify-evenly space-x-10 basis-1/2"><div class="text-center relative"><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-green-400/50 z-10"></div></div><div class="text-center relative"><div class="absolute left-0 top-0 rounded-full w-20 h-20 bg-yellow-400/50 z-10"></div></div></div></div></section></section>`);
 }
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
@@ -1778,6 +1994,7 @@ _sfc_main$2.setup = (props, ctx) => {
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender]]);
+const meta$2 = void 0;
 const meta$1 = void 0;
 const meta = void 0;
 const _routes = [
@@ -1786,27 +2003,36 @@ const _routes = [
     path: "/contact",
     file: "C:/Users/MEG/Desktop/contact-pro/pages/contact.vue",
     children: [],
-    meta: meta$3,
+    meta: meta$4,
     alias: [],
-    component: () => import('./contact.2c01164c.mjs').then((m) => m.default || m)
+    component: () => import('./contact.74085995.mjs').then((m) => m.default || m)
   },
   {
     name: "entreprise",
     path: "/entreprise",
     file: "C:/Users/MEG/Desktop/contact-pro/pages/entreprise.vue",
     children: [],
-    meta: meta$2,
+    meta: meta$3,
     alias: [],
-    component: () => import('./entreprise.75185e1e.mjs').then((m) => m.default || m)
+    component: () => import('./entreprise.0f249015.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
     path: "/",
     file: "C:/Users/MEG/Desktop/contact-pro/pages/index.vue",
     children: [],
+    meta: meta$2,
+    alias: [],
+    component: () => import('./index.15524e01.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "result",
+    path: "/result",
+    file: "C:/Users/MEG/Desktop/contact-pro/pages/result.vue",
+    children: [],
     meta: meta$1,
     alias: [],
-    component: () => import('./index.0db3621b.mjs').then((m) => m.default || m)
+    component: () => import('./result.79732af1.mjs').then((m) => m.default || m)
   },
   {
     name: "service",
@@ -1815,7 +2041,7 @@ const _routes = [
     children: [],
     meta,
     alias: [],
-    component: () => import('./service.3543813a.mjs').then((m) => m.default || m)
+    component: () => import('./service.1c79a6e4.mjs').then((m) => m.default || m)
   }
 ];
 const configRouterOptions = {};
@@ -1964,7 +2190,7 @@ const _sfc_main$1 = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const ErrorComponent = defineAsyncComponent(() => import('./error-component.026d921e.mjs').then((r) => r.default || r));
+    const ErrorComponent = defineAsyncComponent(() => import('./error-component.c557882a.mjs').then((r) => r.default || r));
     const nuxtApp = useNuxtApp();
     provide("_route", useRoute());
     nuxtApp.hooks.callHookWith((hooks) => hooks.map((hook) => hook()), "vue:setup");
@@ -2041,5 +2267,5 @@ const plugins = normalizePlugins(_plugins);
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { CloseIcon as C, _export_sfc as _, _imports_0$2 as a, _imports_1$1 as b, _imports_2$1 as c, _imports_3$1 as d, entry$1 as default, _imports_4 as e, _sfc_main$5 as f, __nuxt_component_0$1 as g, _sfc_main$6 as h, __nuxt_component_1$1 as i, __nuxt_component_1 as j, _imports_0 as k, _imports_1 as l, _imports_2 as m, _imports_3 as n, useHead as o, useState as u };
+export { CloseIcon as C, _export_sfc as _, _imports_0$2 as a, _imports_1$1 as b, _imports_2$1 as c, _imports_3$1 as d, entry$1 as default, _imports_4 as e, _sfc_main$5 as f, __nuxt_component_0 as g, _sfc_main$6 as h, __nuxt_component_1$2 as i, __nuxt_component_1 as j, _imports_3 as k, _imports_1 as l, _imports_0 as m, _imports_2 as n, useHead as o, useState as u };
 //# sourceMappingURL=server.mjs.map
